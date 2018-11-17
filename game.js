@@ -6,7 +6,7 @@ var game = function() {
 
 game.prototype.new_session = async (id) => {
     //do a post request to get the game token
-    this.token = await request({ uri:'http://ec2-34-216-8-43.us-west-2.compute.amazonaws.com/session', method: 'POST', form: { uid: '704984314' }, transform: body => { return JSON.parse(body).token }});
+    this.token = await request({ uri:'http://ec2-34-216-8-43.us-west-2.compute.amazonaws.com/session', method: 'POST', form: { uid: process.env['UID'] }, transform: body => { return JSON.parse(body).token }});
 }
 
 game.prototype.get_level_data = async () => {
